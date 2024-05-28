@@ -36,31 +36,17 @@ int Cantbits(FILE *F)
 }
 
 
-
-
-int Count(FILE *f)
+int Count(FILE *f)//me trabe muchas veces buscando la forma de contar los elementos
 {
-    struct HEADER A;
-    int band=0,cant=0,i=0,rest=Cantbits(f);
-   while(band!=1)
-   {
-      fread(&A,sizeof(uint64_t),1,f);
-     // i=i+A.LLDC;//contador de disposit
-      fread(&A,sizeof(uint16_t),A.LLDC,f);
-      cant=cant+1;//contador de headers
-     if(rest!=0)
+    int band=0;
+    uint16_t rize;
+    struct HEADER A,AUX;
+    do
     {
-      rest= rest-(sizeof(uint16_t)*A.LLDC)-(sizeof(struct HEADER)*64);
-      i++;
-    }
-    else
-    {
-        band=1;
-    }
-
-   }
-   printf("Cantidad de Headers [%d]",i);
-   return i;
+       fread(&A,sizeof(uint64_t),1,f);
+       for()
+    } while (band !=1);
+    
 }
 
 void ShowIds();
